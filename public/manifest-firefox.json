@@ -1,5 +1,5 @@
 {
-  "manifest_version": 3,
+  "manifest_version": 2,
 
   "name": "Open in Perplexity",
   "description": "Add Perplexity to your context menus.",
@@ -18,6 +18,6 @@
   },
 
   "background": {
-    "service_worker": "js/background.js"
+    "scripts": ["js/background.js"]
   }
 }

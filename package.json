@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "watch": "webpack --config webpack/webpack.dev.js --watch",
-    "build": "npm run clean && webpack --config webpack/webpack.prod.js && npm run pack",
+    "build": "npm run clean && webpack --config webpack/webpack.prod.js",
+    "build:ff": "npm run build && cp public/manifest-firefox.json dist/manifest.json && npm run pack",
+    "build:chrome": "npm run build && npm run pack",
     "pack": "cd dist/ && zip -r dist.zip *",
     "clean": "rimraf dist",
     "test": "npx jest",
@@ -18,8 +20,10 @@
     "url": "https://github.com/chibat/chrome-extension-typescript-starter.git"
   },
   "dependencies": {
+    "@types/webextension-polyfill": "^0.10.7",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "webextension-polyfill": "^0.11.0"
   },
   "devDependencies": {
     "@types/chrome": "0.0.158",
